@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery — AssistiveTech Bridge</title>
+  <meta name="description" content="Photos and highlights from AssistiveTech Bridge school visits, workshops, and events." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Fraunces:ital,wght@0,300;0,700;0,900;1,300;1,700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="AssistiveTech Bridge Home">
+        <span class="logo-mark">ATB</span>
+        <span class="logo-name">AssistiveTech Bridge</span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="mission.html" class="nav-link">Mission</a></li>
+          <li><a href="meets.html" class="nav-link">Meets</a></li>
+          <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="dark-mode-toggle" id="darkToggle" aria-label="Toggle dark mode">
+          <span class="toggle-icon">◑</span>
+        </button>
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <nav aria-label="Mobile navigation">
+      <ul>
+        <li><a href="index.html" class="mobile-link">Home</a></li>
+        <li><a href="mission.html" class="mobile-link">Mission</a></li>
+        <li><a href="meets.html" class="mobile-link">Meets</a></li>
+        <li><a href="gallery.html" class="mobile-link">Gallery</a></li>
+        <li><a href="contact.html" class="mobile-link">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero reveal-section" aria-labelledby="gallery-hero-heading">
+      <div class="container">
+        <span class="section-label reveal-up">Visual Stories</span>
+        <h1 class="page-hero-heading reveal-up" id="gallery-hero-heading">
+          Our Work,<br /><em>In Pictures</em>
+        </h1>
+        <p class="page-hero-sub reveal-up">
+          A curated collection of moments from our school visits, workshops, and events. 
+          More photos coming soon as our programs grow.
+        </p>
+      </div>
+    </section>
+
+    <!-- GALLERY NOTE -->
+    <section class="gallery-note-section reveal-section">
+      <div class="container">
+        <div class="gallery-note">
+          <div class="gallery-note-icon" aria-hidden="true">📸</div>
+          <div>
+            <h2>Gallery Coming Soon</h2>
+            <p>We are just getting started. Photos from our first school visits and workshops will appear here. 
+            To add real photos, place image files inside <code>assets/images/</code> and update the 
+            <code>src</code> attributes in the gallery items below.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY GRID -->
+    <section class="gallery-section section-pad reveal-section" aria-labelledby="gallery-grid-heading">
+      <div class="container">
+        <span class="section-label">All Photos</span>
+        <h2 class="section-heading" id="gallery-grid-heading">Photo Gallery</h2>
+
+        <div class="gallery-grid" role="list">
+
+          <figure class="gallery-item" role="listitem">
+            <div class="gallery-img-wrap">
+              <div class="gallery-placeholder" aria-hidden="true">
+                <span class="placeholder-icon">🎤</span>
+              </div>
+              <!-- To add real photo: replace div above with:
+              <img src="assets/images/talk-01.jpg" alt="School talk at [School Name], [Date]" loading="lazy" /> -->
+            </div>
+            <figcaption>
+              <strong>School Talk — Session 01</strong>
+              <span>Filename: <code>assets/images/talk-01.jpg</code></span>
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item gallery-item--wide" role="listitem">
+            <div class="gallery-img-wrap">
+              <div class="gallery-placeholder" aria-hidden="true">
+                <span class="placeholder-icon">🔧</span>
+              </div>
+              <!-- Filename: assets/images/workshop-01.jpg -->
+            </div>
+            <figcaption>
+              <strong>Workshop — Hands-On Demo</strong>
+              <span>Filename: <code>assets/images/workshop-01.jpg</code></span>
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item" role="listitem">
+            <div class="gallery-img-wrap">
+              <div class="gallery-placeholder" aria-hidden="true">
+                <span class="placeholder-icon">👥</span>
+              </div>
+              <!-- Filename: assets/images/students-01.jpg -->
+            </div>
+            <figcaption>
+              <strong>Students — Group Discussion</strong>
+              <span>Filename: <code>assets/images/students-01.jpg</code></span>
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item" role="listitem">
+            <div class="gallery-img-wrap">
+              <div class="gallery-placeholder" aria-hidden="true">
+                <span class="placeholder-icon">♿</span>
+              </div>
+              <!-- Filename: assets/images/devices-01.jpg -->
+            </div>
+            <figcaption>
+              <strong>Assistive Devices — Demo Table</strong>
+              <span>Filename: <code>assets/images/devices-01.jpg</code></span>
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item gallery-item--tall" role="listitem">
+            <div class="gallery-img-wrap">
+              <div class="gallery-placeholder" aria-hidden="true">
+                <span class="placeholder-icon">💡</span>
+              </div>
+              <!-- Filename: assets/images/ideation-01.jpg -->
+            </div>
+            <figcaption>
+              <strong>Ideation — Design Challenge</strong>
+              <span>Filename: <code>assets/images/ideation-01.jpg</code></span>
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item" role="listitem">
+            <div class="gallery-img-wrap">
+              <div class="gallery-placeholder" aria-hidden="true">
+                <span class="placeholder-icon">🏫</span>
+              </div>
+              <!-- Filename: assets/images/school-01.jpg -->
+            </div>
+            <figcaption>
+              <strong>School Visit — Overview</strong>
+              <span>Filename: <code>assets/images/school-01.jpg</code></span>
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item gallery-item--wide" role="listitem">
+            <div class="gallery-img-wrap">
+              <div class="gallery-placeholder" aria-hidden="true">
+                <span class="placeholder-icon">🌟</span>
+              </div>
+              <!-- Filename: assets/images/event-01.jpg -->
+            </div>
+            <figcaption>
+              <strong>Community Event — Highlights</strong>
+              <span>Filename: <code>assets/images/event-01.jpg</code></span>
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item" role="listitem">
+            <div class="gallery-img-wrap">
+              <div class="gallery-placeholder" aria-hidden="true">
+                <span class="placeholder-icon">🤝</span>
+              </div>
+              <!-- Filename: assets/images/team-01.jpg -->
+            </div>
+            <figcaption>
+              <strong>Team — Planning Session</strong>
+              <span>Filename: <code>assets/images/team-01.jpg</code></span>
+            </figcaption>
+          </figure>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section section-pad reveal-section" aria-labelledby="gallery-cta-heading">
+      <div class="container cta-inner">
+        <span class="section-label">Stay Updated</span>
+        <h2 class="cta-heading" id="gallery-cta-heading">More photos on the way.</h2>
+        <p>Follow our progress as we launch our first school talks and workshops. Check back soon for real photos from our events.</p>
+        <div class="cta-buttons">
+          <a href="meets.html" class="btn btn-primary">View Events</a>
+          <a href="contact.html" class="btn btn-ghost-light">Contact Us</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" aria-label="Site footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-mark">ATB</span>
+        <span class="footer-tagline">AssistiveTech Bridge</span>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="mission.html">Mission</a>
+        <a href="meets.html">Meets</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <p class="footer-copy">© 2025 AssistiveTech Bridge · Founded by Sanjey Gopinath · <a href="mailto:assistivetechbridge@gmail.com">assistivetechbridge@gmail.com</a></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

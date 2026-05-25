@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contact — AssistiveTech Bridge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Fraunces:ital,wght@0,300;0,700;0,900;1,300;1,700&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#f8f6f2;--bg2:#f1ede7;--surface:#ffffff;--text:#1c1c1a;--muted:#6b6860;--light:#9a9690;--accent:#2c7a7b;--accent-l:#e8f4f4;--accent-h:#235f60;--gold:#c9a84c;--gold-l:#f7f0dc;--border:#e2ddd7;--serif:'Fraunces',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--hh:72px}
+body.dark{--bg:#141412;--bg2:#1c1c1a;--surface:#212120;--text:#f0ede8;--muted:#9a9690;--light:#6b6860;--accent:#3d9fa0;--accent-l:#1a2e2e;--accent-h:#52b8b9;--gold:#d4a84c;--gold-l:#2a2416;--border:#2e2e2c}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden;transition:background .5s,color .5s}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+.container{max-width:1200px;margin:0 auto;padding:0 clamp(1.25rem,5vw,3rem)}
+
+/* HEADER */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--hh);background:rgba(248,246,242,.92);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);transition:background .5s,box-shadow .3s,border-color .5s}
+body.dark .site-header{background:rgba(20,20,18,.92)}
+.site-header.scrolled{box-shadow:0 4px 24px rgba(0,0,0,.08)}
+.header-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
+.logo{display:flex;align-items:center;gap:.625rem;transition:opacity .2s}
+.logo:hover{opacity:.7}
+.logo-mark{font-family:var(--serif);font-weight:700;font-size:1.05rem;color:var(--accent);background:var(--accent-l);padding:.2em .5em;border-radius:4px;line-height:1;transition:background .5s,color .5s}
+.logo-name{font-size:.9rem;font-weight:500;color:var(--text);transition:color .5s}
+.main-nav ul{display:flex;align-items:center;gap:2rem}
+.nav-link{font-size:.875rem;font-weight:500;color:var(--muted);position:relative;padding-bottom:2px;transition:color .2s}
+.nav-link::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1.5px;background:var(--accent);transition:width .3s}
+.nav-link:hover,.nav-link.active{color:var(--text)}
+.nav-link:hover::after,.nav-link.active::after{width:100%}
+.header-actions{display:flex;align-items:center;gap:1rem}
+.dark-mode-toggle{width:38px;height:38px;border-radius:9999px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--muted);border:1px solid var(--border);transition:all .2s}
+.dark-mode-toggle:hover{background:var(--bg2);color:var(--text)}
+.nav-toggle{display:none;flex-direction:column;gap:5px;width:38px;height:38px;padding:8px;justify-content:center}
+.nav-toggle span{display:block;width:100%;height:1.5px;background:var(--text);border-radius:2px;transition:transform .3s,opacity .3s;transform-origin:center}
+.nav-toggle.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.nav-toggle.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.nav-toggle.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.mobile-menu{position:fixed;inset:0;z-index:999;background:var(--surface);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transform:translateY(-12px);transition:opacity .35s,transform .35s}
+.mobile-menu.open{opacity:1;pointer-events:all;transform:translateY(0)}
+.mobile-menu ul{display:flex;flex-direction:column;align-items:center;gap:2.5rem}
+.mobile-link{font-family:var(--serif);font-size:clamp(2.2rem,7vw,3.5rem);font-weight:700;color:var(--text);transition:color .2s}
+.mobile-link:hover{color:var(--accent)}
+
+/* PAGE HERO */
+.page-hero{position:relative;padding-top:calc(var(--hh) + 6rem);padding-bottom:6rem;overflow:hidden;background:var(--bg)}
+.hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;opacity:.45;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 30%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 30%,transparent 100%)}
+.page-hero .container{position:relative;z-index:1}
+.section-label{display:inline-block;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:1.25rem}
+.page-hero-heading{font-family:var(--serif);font-size:clamp(2.6rem,5.5vw,4.8rem);font-weight:900;line-height:1.08;letter-spacing:-.03em;color:var(--text);margin-bottom:1.5rem}
+.page-hero-heading em{font-style:italic;color:var(--accent)}
+.page-hero-sub{font-size:clamp(1rem,1.8vw,1.2rem);color:var(--muted);max-width:600px;line-height:1.8}
+.section-pad{padding:clamp(4rem,8vw,7rem) 0}
+.section-heading{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;line-height:1.15;color:var(--text);margin-bottom:1.5rem}
+
+/* ABOUT SECTION */
+.about-team-section{background:var(--surface)}
+.founder-grid{display:grid;grid-template-columns:auto 1fr;gap:4rem;align-items:start}
+.founder-avatar{width:120px;height:120px;background:linear-gradient(135deg,var(--accent-l),var(--gold-l));border:2px solid var(--border);border-radius:9999px;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--accent);flex-shrink:0;transition:transform .3s,box-shadow .3s}
+.founder-avatar:hover{transform:scale(1.04);box-shadow:0 12px 40px rgba(44,122,123,.2)}
+.founder-text p{color:var(--muted);line-height:1.9;margin-bottom:1.25rem;font-size:1.02rem}
+.founder-text .lead{font-size:1.1rem;color:var(--text);font-weight:400}
+
+/* ACHIEVEMENT CARDS */
+.achievements-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.achievement-card{background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:2rem;transition:transform .3s,box-shadow .3s,border-color .3s}
+.achievement-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.08);border-color:var(--accent)}
+.achievement-icon{font-size:2rem;margin-bottom:1rem}
+.achievement-card h3{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:.6rem}
+.achievement-card p{font-size:.9rem;color:var(--muted);line-height:1.7}
+
+/* CONTACT GRID */
+.contact-section{background:var(--bg2)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.contact-info h2{margin-bottom:2rem}
+.contact-detail{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.75rem;padding-bottom:1.75rem;border-bottom:1px solid var(--border)}
+.contact-detail:last-of-type{border-bottom:none}
+.contact-detail-icon{font-size:1.5rem;flex-shrink:0;margin-top:.1rem}
+.contact-detail-label{font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--light);margin-bottom:.4rem}
+.contact-detail-value{font-size:1rem;color:var(--text);line-height:1.7}
+.contact-email{color:var(--accent);font-weight:500;transition:color .2s}
+.contact-email:hover{color:var(--accent-h);text-decoration:underline;text-underline-offset:3px}
+.contact-reasons{margin-top:1.5rem}
+.contact-reasons .contact-detail-label{margin-bottom:.75rem}
+.contact-reasons ul{display:flex;flex-direction:column;gap:.6rem}
+.contact-reasons li{font-size:.95rem;color:var(--muted);padding-left:1.25rem;position:relative;line-height:1.6}
+.contact-reasons li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:.85rem}
+
+/* FORM */
+.contact-form-wrap{background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:2.5rem;transition:background .5s,border-color .5s}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-group{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.25rem}
+.form-group label{font-size:.8rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.form-group label span{color:var(--accent)}
+.form-group input,.form-group select,.form-group textarea{font-family:var(--sans);font-size:.95rem;color:var(--text);background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:.875rem 1rem;outline:none;transition:border-color .2s,box-shadow .2s,background .5s}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-l)}
+.form-group textarea{resize:vertical;min-height:140px;line-height:1.7}
+.form-group select{cursor:pointer}
+.form-submit{margin-top:.5rem}
+.btn-full{width:100%;justify-content:center;padding:1em 2em;font-size:1rem}
+.btn-primary{background:var(--accent);color:#fff;border:1.5px solid var(--accent);border-radius:9999px;font-family:var(--sans);font-weight:500;cursor:pointer;transition:all .3s;display:inline-flex;align-items:center;text-decoration:none}
+.btn-primary:hover{background:var(--accent-h);border-color:var(--accent-h);transform:translateY(-2px);box-shadow:0 8px 24px rgba(44,122,123,.3)}
+.form-note{font-size:.8rem;color:var(--light);line-height:1.7;margin-top:1rem;text-align:center}
+.form-note a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+
+/* FOOTER */
+.site-footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 0;transition:background .5s,border-color .5s}
+.footer-inner{display:flex;flex-direction:column;align-items:center;gap:2rem;text-align:center}
+.footer-brand{display:flex;align-items:center;gap:.625rem}
+.footer-tagline{font-size:.9rem;font-weight:500;color:var(--muted)}
+.footer-nav{display:flex;gap:2rem;flex-wrap:wrap;justify-content:center}
+.footer-nav a{font-size:.875rem;color:var(--muted);transition:color .2s}
+.footer-nav a:hover{color:var(--accent)}
+.footer-copy{font-size:.8rem;color:var(--light);line-height:1.7}
+.footer-copy a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+
+/* REVEAL */
+.reveal-up{opacity:0;transform:translateY(32px);transition:opacity .75s cubic-bezier(.4,0,.2,1),transform .75s cubic-bezier(.4,0,.2,1)}
+.reveal-up.visible{opacity:1;transform:translateY(0)}
+.reveal-section .achievement-card{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.4,0,.2,1),transform .7s cubic-bezier(.4,0,.2,1)}
+.reveal-section.visible .achievement-card{opacity:1;transform:translateY(0)}
+.reveal-section .achievement-card:nth-child(2){transition-delay:.1s}
+.reveal-section .achievement-card:nth-child(3){transition-delay:.2s}
+
+@media(max-width:860px){
+  .main-nav{display:none}
+  .nav-toggle{display:flex}
+  .contact-grid{grid-template-columns:1fr}
+  .founder-grid{grid-template-columns:1fr;gap:2rem}
+  .achievements-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .logo-name{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header" id="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">ATB</span>
+      <span class="logo-name">AssistiveTech Bridge</span>
+    </a>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="mission.html" class="nav-link">Mission</a></li>
+        <li><a href="meets.html" class="nav-link">Meets</a></li>
+        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+        <li><a href="contact.html" class="nav-link active">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button class="dark-mode-toggle" id="darkToggle" aria-label="Toggle dark mode">◑</button>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <nav>
+    <ul>
+      <li><a href="index.html" class="mobile-link">Home</a></li>
+      <li><a href="mission.html" class="mobile-link">Mission</a></li>
+      <li><a href="meets.html" class="mobile-link">Meets</a></li>
+      <li><a href="gallery.html" class="mobile-link">Gallery</a></li>
+      <li><a href="contact.html" class="mobile-link">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+
+<main>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="hero-bg-grid" aria-hidden="true"></div>
+    <div class="container">
+      <span class="section-label reveal-up">Contact</span>
+      <h1 class="page-hero-heading reveal-up">
+        Connect with<br><em>AssistiveTech Bridge.</em>
+      </h1>
+      <p class="page-hero-sub reveal-up">
+        Invite a school talk, plan a workshop, or start a conversation about bringing bioengineering and assistive technology into your classroom or community.
+      </p>
+    </div>
+  </section>
+
+  <!-- FOUNDER + ABOUT -->
+  <section class="about-team-section section-pad reveal-section">
+    <div class="container">
+      <span class="section-label">About the founder</span>
+      <div class="founder-grid" style="margin-top:2rem;">
+        <div class="founder-avatar">SG</div>
+        <div class="founder-text">
+          <h2 class="section-heading">Sanjey Gopinath</h2>
+          <p class="lead">
+            Sanjey Gopinath founded AssistiveTech Bridge with a clear conviction: that understanding accessibility and bioengineering should not wait until college or the workforce.
+          </p>
+          <p>
+            Students who learn early to design for everyone become the engineers, designers, researchers, and advocates who shape a more equitable world. Through school talks, workshops, and hands-on sessions, Sanjey is building a movement of young inclusive innovators, one classroom at a time.
+          </p>
+          <p>
+            The mission is personal: to give every student the same spark of excitement about assistive technology and bioengineering that drove the founding of AssistiveTech Bridge — the moment you realize that STEM isn't just about building things. It's about building a better life for everyone.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM MEMBER ACHIEVEMENTS -->
+  <section class="section-pad reveal-section" style="background:var(--bg2)">
+    <div class="container">
+      <span class="section-label">The student team</span>
+      <h2 class="section-heading">Driven by students who compete, research, and lead</h2>
+      <p style="color:var(--muted);max-width:680px;font-size:1.02rem;line-height:1.85;margin-bottom:0">
+        AssistiveTech Bridge is supported by motivated student contributors who bring real STEM credentials and genuine passion for assistive technology to every talk and workshop we run.
+      </p>
+      <div class="achievements-grid">
+        <div class="achievement-card">
+          <div class="achievement-icon">🏫</div>
+          <h3>duPont Manual High School</h3>
+          <p>
+            Team contributor Sanjey Gopinath is a freshman at duPont Manual High School in Louisville, Kentucky — one of the most nationally recognized STEM high schools in the United States, known for rigorous academic programs and producing top-tier science fair competitors and researchers.
+          </p>
+        </div>
+        <div class="achievement-card">
+          <div class="achievement-icon">🔬</div>
+          <h3>Kentucky Science &amp; Engineering Fair</h3>
+          <p>
+            Sanjey has earned recognition at the Kentucky Science &amp; Engineering Fair (KY-SEF), one of the most competitive state-level science and engineering competitions in the region — demonstrating a commitment to rigorous research and scientific inquiry from an early stage.
+          </p>
+        </div>
+        <div class="achievement-card">
+          <div class="achievement-icon">🏆</div>
+          <h3>Thermo Fisher Junior Innovators Challenge</h3>
+          <p>
+           Sanjey has also received recognition through the Thermo Fisher Scientific Junior Innovators Challenge (JIC), a nationally prestigious middle school science competition — reflecting a strong research background, aspirations in biomedical engineering, and a deep interest in tinnitus and assistive technologies.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT GRID -->
+  <section class="contact-section section-pad reveal-section">
+    <div class="container contact-grid">
+
+      <!-- INFO -->
+      <div class="contact-info">
+        <h2 class="section-heading">Get in touch</h2>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon">👤</div>
+          <div>
+            <p class="contact-detail-label">Founder</p>
+            <p class="contact-detail-value">Sanjey Gopinath</p>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon">✉️</div>
+          <div>
+            <p class="contact-detail-label">Email</p>
+            <a href="mailto:assistivetechbridge@gmail.com" class="contact-detail-value contact-email">
+              assistivetechbridge@gmail.com
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📍</div>
+          <div>
+            <p class="contact-detail-label">Location</p>
+            <p class="contact-detail-value">Louisville, Kentucky, USA</p>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon">🕐</div>
+          <div>
+            <p class="contact-detail-label">Response time</p>
+            <p class="contact-detail-value">We aim to respond within 2–3 business days.</p>
+          </div>
+        </div>
+
+        <div class="contact-reasons">
+          <p class="contact-detail-label">Reach out if you:</p>
+          <ul>
+            <li>Want a talk or workshop for your school</li>
+            <li>Are planning a STEM or accessibility-focused event</li>
+            <li>Would like to collaborate on student-centered outreach</li>
+            <li>Have questions about bioengineering or assistive tech pathways for students</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- FORM -->
+      <div class="contact-form-wrap">
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="contact-name">Full Name <span>*</span></label>
+              <input type="text" id="contact-name" name="name" placeholder="Your full name" required autocomplete="name"/>
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Email Address <span>*</span></label>
+              <input type="email" id="contact-email" name="email" placeholder="your@email.com" required autocomplete="email"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="contact-org">School or Organization</label>
+            <input type="text" id="contact-org" name="organization" placeholder="Your school or organization (optional)"/>
+          </div>
+          <div class="form-group">
+            <label for="contact-subject">Subject <span>*</span></label>
+            <select id="contact-subject" name="subject" required>
+              <option value="" disabled selected>Select a subject</option>
+              <option value="school-talk">Book a School Talk</option>
+              <option value="workshop">Book a Workshop</option>
+              <option value="partnership">Partnership / Collaboration</option>
+              <option value="student-question">Student Question</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="contact-message">Message <span>*</span></label>
+            <textarea id="contact-message" name="message" rows="6" placeholder="Share who you are, what you're interested in, and how AssistiveTech Bridge can support your students or community." required></textarea>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+            <p class="form-note">
+              Submitting opens your email client with your message pre-filled. You can also email directly at <a href="mailto:assistivetechbridge@gmail.com">assistivetechbridge@gmail.com</a>.
+            </p>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="logo-mark">ATB</span>
+      <span class="footer-tagline">AssistiveTech Bridge</span>
+    </div>
+    <nav class="footer-nav">
+      <a href="index.html">Home</a>
+      <a href="mission.html">Mission</a>
+      <a href="meets.html">Meets</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <p class="footer-copy">© 2025 AssistiveTech Bridge · Founded by Sanjey Gopinath · <a href="mailto:assistivetechbridge@gmail.com">assistivetechbridge@gmail.com</a></p>
+  </div>
+</footer>
+
+<script>
+const saved = localStorage.getItem('atb-dark');
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+if (saved === 'true' || (saved === null && prefersDark)) document.body.classList.add('dark');
+document.getElementById('darkToggle').addEventListener('click', () => {
+  document.body.classList.toggle('dark');
+  localStorage.setItem('atb-dark', document.body.classList.contains('dark'));
+});
+window.addEventListener('scroll', () => {
+  document.getElementById('site-header').classList.toggle('scrolled', window.scrollY > 20);
+}, {passive: true});
+const navToggle = document.getElementById('navToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+let menuOpen = false;
+navToggle.addEventListener('click', () => {
+  menuOpen = !menuOpen;
+  navToggle.classList.toggle('open', menuOpen);
+  mobileMenu.classList.toggle('open', menuOpen);
+  navToggle.setAttribute('aria-expanded', menuOpen);
+  document.body.style.overflow = menuOpen ? 'hidden' : '';
+});
+mobileMenu.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => {
+  menuOpen = false; navToggle.classList.remove('open'); mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+}));
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && menuOpen) navToggle.click(); });
+
+// Form → mailto
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const name = document.getElementById('contact-name').value;
+  const org = document.getElementById('contact-org').value;
+  const subject = document.getElementById('contact-subject').value;
+  const message = document.getElementById('contact-message').value;
+  const body = `Name: ${name}\nOrganization: ${org || 'N/A'}\n\n${message}`;
+  window.location.href = `mailto:assistivetechbridge@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal-up, .reveal-section').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
